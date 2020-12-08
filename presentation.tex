@@ -1,0 +1,233 @@
+% ======================================================================
+%
+% Project presentation template in official BUT (Brno University of
+% Technology) colors defined by graphical manual in 2015.
+%
+% Copyright (c) 2018-2020 Tomas Fryza, Wykys
+% Dept. of Radio Electronics, Brno University of Technology, Czechia
+%
+% This work is licensed under the terms of the CC BY-NC-SA 4.0 license.
+% https://creativecommons.org/licenses/by-nc-sa/4.0/
+%
+% ======================================================================
+
+%% Sets aspect ratio to 16:10, and frame size to 160mm by 100mm
+% Do not use old-school 4:3 ratio anymore!
+\documentclass[aspectratio=1610]{beamer}
+
+%% Select your preferred language
+\usepackage[english]{babel} % Multilingual support for LaTeX
+% \usepackage[czech]{babel}
+
+\usepackage[utf8]{inputenc} % Accept different input encodings
+\usepackage{ucs} % Extended UTF-8 input encoding support for LaTeX
+\usepackage{graphicx} % Enhanced support for graphics
+\usepackage{listings} % Typeset source code listings using LaTeX
+\usepackage{color} % Colour control for LaTeX documents
+
+%% Move your favorite logo to `Images/logo.png` file
+
+%% Select color theme
+\usepackage{themevut} % All in red:)
+% \usepackage[FA]{themevut}
+% \usepackage[FAST]{themevut}
+% \usepackage[FaVU]{themevut}
+% \usepackage[FCH]{themevut}
+% \usepackage[FEKT]{themevut}
+% \usepackage[FIT]{themevut}
+% \usepackage[FP]{themevut}
+% \usepackage[FSI]{themevut}
+% \usepackage[CESA]{themevut}
+% \usepackage[USI]{themevut}
+
+% ----------------------------------------------------------------------
+% TITLE PAGE
+% ----------------------------------------------------------------------
+
+% The short title appears at the bottom of every slide, the full title
+% is only on the title page.
+\title[Short title]
+{Full title of the project}
+
+% Type of project, i.e. Semester, Bachelor, Master, PhD, etc.
+\subtitle
+{Type of project}
+
+% Your name
+\author[Given name SURNAME]
+{Given name SURNAME\\
+\texttt{email@address}}
+
+% Your institution
+\institute
+{Department of Radio Electronics\\
+Brno University of Technology, Czechia}
+
+% Date, can be changed to a custom date
+\date[\today]
+{Brno, \today}
+
+% Logo on title page
+\titlegraphic{\includegraphics[height=.15\textheight]{Images/logo.png}}
+
+\begin{document}
+
+% ----------------------------------------------------------------------
+% PRESENTATION SLIDES
+% ----------------------------------------------------------------------
+
+\begin{frame}
+    % Print the title page as the first slide
+    \titlepage
+\end{frame}
+
+% ----------------------------------------------------------------------
+% https://cs.overleaf.com/learn/latex/Lists
+\begin{frame}{Lists}
+    \textbf{Unordered list}
+    \begin{itemize}
+        \item Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        \item Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.
+        \item Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+    \end{itemize}
+    \bigskip
+
+    \textbf{Ordered list}
+    \begin{enumerate}
+        \item \alert{Lorem ipsum dolor} sit amet, consectetuer adipiscing elit.
+        \item Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        \item Aliquam erat volutpat:
+        \begin{itemize}
+            \item Integer lacinia.
+            \item Integer lacinia.
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+% ----------------------------------------------------------------------
+
+\begin{frame}{Multiple columns}
+    \begin{columns}
+        % Left column and width
+        \column{0.45\textwidth}
+        \textit{Lorem ipsum} dolor sit amet, consectetuer adipiscing elit. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor.
+        \bigskip
+        
+        \texttt{Fusce tellus.} Praesent in mauris eu tortor porttitor accumsan. Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante. Vestibulum fermentum tortor id mi.
+
+        % Right column and width
+        \column{0.45\textwidth}
+        \textbf{Lorem ipsum} dolor sit amet, consectetuer adipiscing elit. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor.
+        \bigskip
+        
+        \underline{Fusce tellus.} Praesent in mauris eu tortor porttitor accumsan. Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante. Vestibulum fermentum tortor id mi.
+    \end{columns}
+\end{frame}
+
+% ----------------------------------------------------------------------
+% https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions
+\begin{frame}{Figures}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.25\textwidth]{Images/logo.png}
+        \caption{Your figure caption.}
+    \end{figure}
+\end{frame}
+
+% ----------------------------------------------------------------------
+% https://en.wikibooks.org/wiki/LaTeX/Tables
+\begin{frame}{Tables}
+    \begin{table}
+        \centering
+        \caption{Your table caption.}
+        \begin{tabular}{l | c | c | r}
+            \hline
+            \textbf{ID} & \textbf{Duration} & \textbf{Complexity} & \textbf{Score}\\
+            \hline
+            Algo 1 & 0.0159 & 0.50 & 78\\
+            Algo 2 & 0.0453 & 0.65 & 88\\
+            Algo 3 & 0.8642 & 0.77 & 95\\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+% ----------------------------------------------------------------------
+% https://en.wikibooks.org/wiki/LaTeX/Mathematics
+\begin{frame}{Equations}
+    Pythagorean theorem can be written in one short equation as: $a^2 + b^2 = c^2$ where $c$ is the longest side of the triangle, $a$ and $b$ are the other two sides.
+
+    \vfill % Rubber length which can stretch or shrink vertically
+
+    Other useful equations (thank you \textit{John Napier}):
+    \begin{equation}
+        \log_b (x\cdot y) = \log_b (x) + \log_b (y)
+    \end{equation}
+    \begin{equation}
+        \log_b \left( \frac{x}{y} \right) = \log_b (x) - \log_b (y)
+    \end{equation}
+    \begin{equation}
+        \log_b (x^p) = p\cdot \log_b (x)
+    \end{equation}
+%    \begin{eqnarray*} Start means no numbering
+%    \begin{eqnarray}  Equation will have a number
+    \begin{eqnarray*}
+        \log_b(x) = y & \text{exactly if} & b^y = x
+    \end{eqnarray*}
+\end{frame}
+
+% ----------------------------------------------------------------------
+% https://cs.overleaf.com/learn/latex/Code_listing
+\begin{frame}[fragile]{Code listings}
+    % Need to use the "fragile" option when verbatim is used in the slide
+
+\begin{lstlisting}[language=C,title={This is title}]
+void setup(void) {
+    uart_init(UART_BAUD_SELECT(UART_BAUD_RATE, F_CPU));  // UART mode 8N1
+    esp8266_init();  // Initialize ESP8266 Wi-Fi module
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=vhdl,title={This is title}]
+entity hex_to_7seg is
+    port (hex_i: in  std_logic_vector(4-1 downto 0);
+          seg_o: out std_logic_vector(7-1 downto 0));
+end entity hex_to_7seg;
+\end{lstlisting}
+
+\begin{lstlisting}[language=Matlab,caption={This is caption}]
+x = 0:0.05:5;
+y = sin(x.^2);
+figure
+plot(x,y)  % The plot function creates simple line plots of x and y values
+\end{lstlisting}
+\end{frame}
+
+% ----------------------------------------------------------------------
+% Remind the main results at the end of your presentation
+\begin{frame}{Achieved results}
+    \begin{itemize}
+        \item Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        \item Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.
+        \item Aliquam erat volutpat.
+        \item Integer lacinia.
+        \item Cras pede libero, dapibus nec, pretium sit amet, tempor quis.
+    \end{itemize}
+\end{frame}
+
+% ----------------------------------------------------------------------
+% It is a common practice you already have reviewer(s) comments/questions before your presentation. Sometimes, it is useful to prepare extra slides to answer those questions.
+\begin{frame}{Reviewer's questions}
+    \begin{exampleblock}{Question 1}
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit?
+    \end{exampleblock}
+    \bigskip
+
+    \begin{block}{Answer 1}
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
+    \end{block}
+\end{frame}
+
+% ----------------------------------------------------------------------
+
+\end{document}

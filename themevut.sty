@@ -1,0 +1,257 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{themevut}[2020/11/25 Brno University of Technology theme]
+
+%%%
+%%% Inherit definitions from existing themes (DO NOT MODIFY THESE)
+%%%
+
+% Layout scheme for outer elements: split header and footer
+\useoutertheme{infolines} %split
+
+% Color scheme for outer elements: use background colors
+\usecolortheme{whale} % beaver  whale
+
+% Layout scheme for inner elements: rounded elements
+\useinnertheme[shadow=false]{rounded} 
+
+% Color scheme for inner elements: use foreground colors
+\usecolortheme{orchid} % orchid
+
+
+%%%
+%%% Tweak definitions of inner theme to match personal preferences (MODIFY THESE)
+%%%
+
+% Itemize items: default (triangle), circle, square, ball
+\setbeamertemplate{itemize items}[circle]
+
+% Enumerate items: default, circle, square, ball
+\setbeamertemplate{enumerate items}[circle]
+
+% Outline: default, sections numbered, subsections numbered, circle, square, ball, ball unnumbered
+\setbeamertemplate{sections/subsections in toc}[default]
+
+% General blocks:
+\setbeamertemplate{blocks}[rounded]
+
+% Title page:
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
+
+% Part page:
+\setbeamertemplate{part page}[default][colsep=-4bp,rounded=true]
+
+% Navigation symbols:
+\setbeamertemplate{navigation symbols}{}
+
+
+%%%
+%%% Tweak definitions of outer theme to match Radboud (website) style
+%%%
+
+
+%% Background
+% No background
+
+
+%% Colors
+\definecolor{VUT}{RGB}{228,0,43} % red
+\definecolor{VUTblack}{RGB}{44,42,41}
+\definecolor{VUTgray}{RGB}{137,141,141}
+\definecolor{VUTFA}{RGB}{122,153,172}
+\definecolor{VUTFAST}{RGB}{101,141,27}
+\definecolor{VUTFaVU}{RGB}{231,130,169}
+\definecolor{VUTFCH}{RGB}{0,171,142}
+\definecolor{VUTFEKT}{RGB}{0,61,165}
+\definecolor{VUTFIT}{RGB}{0,169,224}
+\definecolor{VUTFP}{RGB}{130,70,175}
+\definecolor{VUTFSI}{RGB}{0,79,113}
+\definecolor{VUTCESA}{RGB}{0,156,166}
+\definecolor{VUTUSI}{RGB}{32,21,71}
+
+\newif\if@doFA\@doFAfalse
+\DeclareOption{FA}{\@doFAtrue}
+\newif\if@doFAST\@doFASTfalse
+\DeclareOption{FAST}{\@doFASTtrue}
+\newif\if@doFaVU\@doFaVUfalse
+\DeclareOption{FaVU}{\@doFaVUtrue}
+\newif\if@doFCH\@doFCHfalse
+\DeclareOption{FCH}{\@doFCHtrue}
+\newif\if@doFEKT\@doFEKTfalse
+\DeclareOption{FEKT}{\@doFEKTtrue}
+\newif\if@doFIT\@doFITfalse
+\DeclareOption{FIT}{\@doFITtrue}
+\newif\if@doFP\@doFPfalse
+\DeclareOption{FP}{\@doFPtrue}
+\newif\if@doFSI\@doFSIfalse
+\DeclareOption{FSI}{\@doFSItrue}
+\newif\if@doCESA\@doCESAfalse
+\DeclareOption{CESA}{\@doCESAtrue}
+\newif\if@doUSI\@doUSIfalse
+\DeclareOption{USI}{\@doUSItrue}
+\ProcessOptions
+
+\if@doFA
+    \newcommand{\USERCOLOR}{VUTFA}
+\else
+    \if@doFAST
+        \newcommand{\USERCOLOR}{VUTFAST}
+    \else
+        \if@doFaVU
+            \newcommand{\USERCOLOR}{VUTFaVU}
+        \else
+            \if@doFCH
+                \newcommand{\USERCOLOR}{VUTFCH}
+            \else
+                \if@doFEKT
+                    \newcommand{\USERCOLOR}{VUTFEKT}
+                \else
+                    \if@doFIT
+                        \newcommand{\USERCOLOR}{VUTFIT}
+                    \else
+                        \if@doFP
+                            \newcommand{\USERCOLOR}{VUTFP}
+                        \else
+                            \if@doFSI
+                                \newcommand{\USERCOLOR}{VUTFSI}
+                            \else
+                                \if@doCESA
+                                    \newcommand{\USERCOLOR}{VUTCESA}
+                                \else
+                                    \if@doUSI
+                                        \newcommand{\USERCOLOR}{VUTUSI}
+                                    \else
+                                        \newcommand{\USERCOLOR}{VUT}
+                                    \fi
+                                \fi
+                            \fi
+                        \fi
+                    \fi
+                \fi
+            \fi
+        \fi
+    \fi
+\fi
+
+\setbeamercolor{mycolor}{bg=\USERCOLOR, fg=white}
+\setbeamercolor{alerted text}{fg=\USERCOLOR}
+\usecolortheme[named=\USERCOLOR]{structure}
+
+
+%% TITLE PAGE
+\makeatletter
+\setbeamertemplate{title page}{%
+    \vbox{}
+    \vfill
+    \begingroup
+        \centering
+        ~
+        \begin{beamercolorbox}[sep=8pt,wd=.8\textwidth,center,rounded=true]{title}
+            \usebeamerfont{title}\inserttitle\par%
+            \ifx\insertsubtitle\@empty%
+            \else%
+                \vskip0.25em%
+                {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+            \fi%     
+        \end{beamercolorbox}%
+        \vskip1em\par
+        ~
+        \begin{beamercolorbox}[sep=8pt,wd=.8\textwidth,center,rounded=true]{mycolor}
+            \usebeamerfont{author}\insertauthor
+        \end{beamercolorbox}
+        ~
+        \begin{beamercolorbox}[sep=10pt,center,colsep=-4bp,rounded=true]{institute}
+            \usebeamerfont{institute}\insertinstitute
+        \end{beamercolorbox}
+        ~
+        \begin{beamercolorbox}[sep=0pt,center,colsep=-4bp,rounded=true]{date}
+            \usebeamerfont{date}\insertdate
+        \end{beamercolorbox}\vskip0.5em
+        ~
+        \vfill 
+        {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    \endgroup
+\vfill
+}
+\makeatother
+
+
+%% Headerline: NO HEADERLINE
+\defbeamertemplate*{headline}{ru theme}{%
+}
+
+
+%% Frametitle: FRAMETITLE LOGO
+\defbeamertemplate*{frametitle}{ru theme}{%
+    \nointerlineskip%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=1cm,leftskip=.5cm,rightskip=.1cm]{frametitle}
+        \usebeamerfont*{frametitle}\raisebox{0ex}{\insertframetitle}\hfill\raisebox{-0.9ex}{\includegraphics[height=.825cm]{Images/logo.png}}
+        \vskip.4ex
+    \end{beamercolorbox}%
+    \nointerlineskip
+}
+
+
+%% Footline: AUTHOR | TITLE | DATE FRAMENUMBER
+\defbeamertemplate*{footline}{ru theme}
+{
+    \ifnum \insertpagenumber=1
+        \leavevmode%
+        \hbox{%
+            \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,center]{}%
+            % empty environment to raise height
+            \end{beamercolorbox}%
+        }%
+        \vskip0pt%
+    \else
+        \leavevmode%
+        \hbox{%
+            \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,center]{mycolor}
+                \usebeamerfont{author in head/foot}\insertshortauthor
+            \end{beamercolorbox}%
+        
+            \begin{beamercolorbox}[wd=.55\paperwidth,ht=2.25ex,dp=1ex,center]{mycolor}
+                \usebeamerfont{title in head/foot}\insertshorttitle
+            \end{beamercolorbox}%
+
+            \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,right]{mycolor}
+                \usebeamerfont{author in head/foot}\insertshortdate \hspace*{2ex} \insertframenumber{} / \inserttotalframenumber \hspace*{2ex}
+            \end{beamercolorbox}%
+        }%
+        \vskip0pt%
+    \fi
+}
+
+
+%% Listing specifications
+% https://cs.overleaf.com/learn/latex/Code_listing
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstset{
+    identifierstyle=\ttfamily,
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\scriptsize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=t,
+    keepspaces=true,
+    numbers=left,
+    numbersep=2pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+
+%% To avoid warnings because of commands not supported in PDF bookmark strings:
+% \author{Name \\ \texttt{my.email@domain.com}}
+\pdfstringdefDisableCommands{%
+  \def\\{}%
+  \def\texttt#1{<#1>}%
+}
