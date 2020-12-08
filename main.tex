@@ -11,29 +11,21 @@
 %
 % ======================================================================
 
-%% Sets aspect ratio to 16:10, and frame size to 160mm by 100mm
-% Do not use old-school 4:3 ratio anymore!
 \documentclass[aspectratio=1610]{beamer}
-
-%% Select your preferred language
-\usepackage[english]{babel} % Multilingual support for LaTeX
+\usepackage[english]{babel}
 % \usepackage[czech]{babel}
+\usepackage[utf8]{inputenc} 
+\usepackage{ucs,graphicx,listings,color}
 
-\usepackage[utf8]{inputenc} % Accept different input encodings
-\usepackage{ucs} % Extended UTF-8 input encoding support for LaTeX
-\usepackage{graphicx} % Enhanced support for graphics
-\usepackage{listings} % Typeset source code listings using LaTeX
-\usepackage{color} % Colour control for LaTeX documents
+% ----------------------------------------------------------------------
 
-%% Move your favorite logo to `Images/logo.png` file
-
-%% Select color theme
-\usepackage{themevut} % All in red:)
+%% COLOR THEME
+% \usepackage{themevut} % All in red:)
 % \usepackage[FA]{themevut}
 % \usepackage[FAST]{themevut}
 % \usepackage[FaVU]{themevut}
 % \usepackage[FCH]{themevut}
-% \usepackage[FEKT]{themevut}
+\usepackage[FEKT]{themevut}
 % \usepackage[FIT]{themevut}
 % \usepackage[FP]{themevut}
 % \usepackage[FSI]{themevut}
@@ -46,12 +38,12 @@
 
 % The short title appears at the bottom of every slide, the full title
 % is only on the title page.
-\title[Short title]
-{Full title of the project}
+\title[Short titles]
+{Full title of the thesis/project}
 
-% Type of project, i.e. Semester, Bachelor, Master, PhD, etc.
+% Type of project, i.e. Semestral, Bachelor, Master's, PhD, etc.
 \subtitle
-{Type of project}
+{Semestral/Bachelor/Master's thesis}
 
 % Your name
 \author[Given name SURNAME]
@@ -68,7 +60,7 @@ Brno University of Technology, Czechia}
 {Brno, \today}
 
 % Logo on title page
-\titlegraphic{\includegraphics[height=.15\textheight]{Images/logo.png}}
+\titlegraphic{\includegraphics[height=.15\textheight]{Images/logo/logo_fekt_urel.png}}
 
 \begin{document}
 
@@ -81,65 +73,118 @@ Brno University of Technology, Czechia}
     \titlepage
 \end{frame}
 
+
 % ----------------------------------------------------------------------
 % https://cs.overleaf.com/learn/latex/Lists
 \begin{frame}{Lists}
     \textbf{Unordered list}
     \begin{itemize}
         \item Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
         \item Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.
-        \item Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
     \end{itemize}
     \bigskip
 
     \textbf{Ordered list}
     \begin{enumerate}
         \item \alert{Lorem ipsum dolor} sit amet, consectetuer adipiscing elit.
-        \item Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
         \item Aliquam erat volutpat:
         \begin{itemize}
             \item Integer lacinia.
+
             \item Integer lacinia.
         \end{itemize}
     \end{enumerate}
 \end{frame}
 
+
 % ----------------------------------------------------------------------
 
 \begin{frame}{Multiple columns}
     \begin{columns}
-        % Left column and width
-        \column{0.45\textwidth}
-        \textit{Lorem ipsum} dolor sit amet, consectetuer adipiscing elit. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor.
+        \column{0.49\textwidth}
+        \textit{Lorem ipsum} dolor sit amet, consectetuer adipiscing elit. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.
         \bigskip
         
-        \texttt{Fusce tellus.} Praesent in mauris eu tortor porttitor accumsan. Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante. Vestibulum fermentum tortor id mi.
+        \texttt{Fusce tellus.} Praesent in mauris eu tortor porttitor accumsan. Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante.
 
-        % Right column and width
-        \column{0.45\textwidth}
-        \textbf{Lorem ipsum} dolor sit amet, consectetuer adipiscing elit. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor.
+        \column{0.49\textwidth}
+        \textbf{Lorem ipsum} dolor sit amet, consectetuer adipiscing elit. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.
         \bigskip
         
-        \underline{Fusce tellus.} Praesent in mauris eu tortor porttitor accumsan. Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante. Vestibulum fermentum tortor id mi.
+        \underline{Fusce tellus.} Praesent in mauris eu tortor porttitor accumsan. Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante.
     \end{columns}
 \end{frame}
+
+
+% ----------------------------------------------------------------------
+
+\begin{frame}{Multiple columns, \textit{cont.}}
+    \begin{multicols}{2}
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor.
+        \columnbreak
+        
+        Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante. Vestibulum fermentum tortor id mi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor. Fusce tellus. Praesent in mauris eu tortor porttitor accumsan.
+    \end{multicols}
+\end{frame}
+
+
+% ----------------------------------------------------------------------
+
+\begin{frame}{Blocks}
+    \begin{columns}
+        \column{0.3\textwidth}
+        \begin{block}{Block}
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue.
+        \end{block}
+
+        \column{0.3\textwidth}
+        \begin{exampleblock}{Example block}
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue.
+        \end{exampleblock}
+
+        \column{0.3\textwidth}
+        \begin{alertblock}{Alert block}
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue.
+        \end{alertblock}
+    \end{columns}
+\end{frame}
+
 
 % ----------------------------------------------------------------------
 % https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions
 \begin{frame}{Figures}
     \begin{figure}
         \centering
-        \includegraphics[width=0.25\textwidth]{Images/logo.png}
-        \caption{Your figure caption.}
+        \includegraphics[width=0.25\textwidth]{Images/logo/logo_symbol.png}
+        \caption{Your caption.}
     \end{figure}
 \end{frame}
 
+
 % ----------------------------------------------------------------------
 % https://en.wikibooks.org/wiki/LaTeX/Tables
-\begin{frame}{Tables}
+\begin{frame}[fragile]{Tables}
+    \lstset{language=[LaTeX]TeX}
+\begin{lstlisting}
+\begin{table}
+    \centering
+    \caption{Your caption.}
+    \begin{tabular}{l | c | c | r}
+        \hline
+        \textbf{ID} & \textbf{Duration} & \textbf{Complexity} & \textbf{Score}\\
+        \hline
+        Algo 1 & 0.0159 & 0.50 & 78\\
+        Algo 2 & 0.0453 & 0.65 & 88\\
+        Algo 3 & 0.8642 & 0.77 & 95\\
+        \hline
+    \end{tabular}
+\end{table}
+\end{lstlisting}
     \begin{table}
         \centering
-        \caption{Your table caption.}
+        \caption{Your caption.}
         \begin{tabular}{l | c | c | r}
             \hline
             \textbf{ID} & \textbf{Duration} & \textbf{Complexity} & \textbf{Score}\\
@@ -152,6 +197,7 @@ Brno University of Technology, Czechia}
     \end{table}
 \end{frame}
 
+
 % ----------------------------------------------------------------------
 % https://en.wikibooks.org/wiki/LaTeX/Mathematics
 \begin{frame}{Equations}
@@ -161,14 +207,9 @@ Brno University of Technology, Czechia}
 
     Other useful equations (thank you \textit{John Napier}):
     \begin{equation}
-        \log_b (x\cdot y) = \log_b (x) + \log_b (y)
-    \end{equation}
-    \begin{equation}
-        \log_b \left( \frac{x}{y} \right) = \log_b (x) - \log_b (y)
-    \end{equation}
-    \begin{equation}
         \log_b (x^p) = p\cdot \log_b (x)
     \end{equation}
+
 %    \begin{eqnarray*} Start means no numbering
 %    \begin{eqnarray}  Equation will have a number
     \begin{eqnarray*}
@@ -176,41 +217,66 @@ Brno University of Technology, Czechia}
     \end{eqnarray*}
 \end{frame}
 
+
 % ----------------------------------------------------------------------
 % https://cs.overleaf.com/learn/latex/Code_listing
 \begin{frame}[fragile]{Code listings}
     % Need to use the "fragile" option when verbatim is used in the slide
 
-\begin{lstlisting}[language=C,title={This is title}]
-void setup(void) {
-    uart_init(UART_BAUD_SELECT(UART_BAUD_RATE, F_CPU));  // UART mode 8N1
-    esp8266_init();  // Initialize ESP8266 Wi-Fi module
+    \vspace*{-.5cm}
+    \begin{columns}
+        \column{0.55\textwidth}
+\begin{lstlisting}[language=C,title={C example}]
+for (uint8_t i = 0; i < LENGTH; i++)
+{
+    // Test LSB of "segments"
+    if ((segments & 0x01) == 0)
+        GPIO_write_low(&PORTB, SEGMENT_DATA);
+    else
+        GPIO_write_high(&PORTB, SEGMENT_DATA);
+    // One clock
+    SEG_clk_2us();
+    // Shift "segments"
+    segments = segments >> 1;
 }
 \end{lstlisting}
 
-\begin{lstlisting}[language=vhdl,title={This is title}]
-entity hex_to_7seg is
-    port (hex_i: in  std_logic_vector(4-1 downto 0);
-          seg_o: out std_logic_vector(7-1 downto 0));
-end entity hex_to_7seg;
-\end{lstlisting}
-
-\begin{lstlisting}[language=Matlab,caption={This is caption}]
+        \column{0.43\textwidth}
+\begin{lstlisting}[language=Matlab,caption={Matlab example}]
 x = 0:0.05:5;
 y = sin(x.^2);
 figure
-plot(x,y)  % The plot function creates simple line plots of x and y values
+% Simple line plot of x and y values
+plot(x,y)
+\end{lstlisting}
+    \end{columns}
+
+\begin{lstlisting}[language=vhdl,title={VHDL example},numbers=left]
+---------------------------------------------------------------
+-- Entity declaration for hexadecimal to seven-segment decoder
+---------------------------------------------------------------
+entity hex_7seg is
+    port(
+        hex_i: in  std_logic_vector(4 - 1 downto 0);
+        seg_o: out std_logic_vector(7 - 1 downto 0)
+    );
+end entity hex_7seg;
 \end{lstlisting}
 \end{frame}
+
 
 % ----------------------------------------------------------------------
 % Remind the main results at the end of your presentation
 \begin{frame}{Achieved results}
     \begin{itemize}
         \item Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
         \item Etiam sapien elit, consequat eget, tristique non, venenatis quis, ante.
+
         \item Aliquam erat volutpat.
+
         \item Integer lacinia.
+
         \item Cras pede libero, dapibus nec, pretium sit amet, tempor quis.
     \end{itemize}
 \end{frame}
@@ -227,7 +293,5 @@ plot(x,y)  % The plot function creates simple line plots of x and y values
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
     \end{block}
 \end{frame}
-
-% ----------------------------------------------------------------------
 
 \end{document}

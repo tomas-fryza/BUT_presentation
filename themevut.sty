@@ -1,5 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{themevut}[2020/11/25 Brno University of Technology theme]
+\usepackage{multicol}
 
 %%%
 %%% Inherit definitions from existing themes (DO NOT MODIFY THESE)
@@ -40,8 +41,15 @@
 % Part page:
 \setbeamertemplate{part page}[default][colsep=-4bp,rounded=true]
 
+% Numbered figure and table captions:
+\setbeamertemplate{caption}[numbered]
+
 % Navigation symbols:
 \setbeamertemplate{navigation symbols}{}
+
+% Alert block
+\setbeamercolor{block title alerted}{fg=white,bg=red!75!black}
+\setbeamercolor{block body alerted}{bg=block title alerted.bg!10!bg}
 
 
 %%%
@@ -184,7 +192,7 @@
 \defbeamertemplate*{frametitle}{ru theme}{%
     \nointerlineskip%
     \begin{beamercolorbox}[wd=\paperwidth,ht=1cm,leftskip=.5cm,rightskip=.1cm]{frametitle}
-        \usebeamerfont*{frametitle}\raisebox{0ex}{\insertframetitle}\hfill\raisebox{-0.9ex}{\includegraphics[height=.825cm]{Images/logo.png}}
+        \usebeamerfont*{frametitle}\raisebox{0ex}{\insertframetitle}\hfill\raisebox{-0.9ex}{\scalebox{.58}{\inserttitlegraphic}}
         \vskip.4ex
     \end{beamercolorbox}%
     \nointerlineskip
@@ -240,7 +248,7 @@
     breaklines=true,
     captionpos=t,
     keepspaces=true,
-    numbers=left,
+    numbers=none,
     numbersep=2pt,
     showspaces=false,
     showstringspaces=false,
@@ -255,3 +263,8 @@
   \def\\{}%
   \def\texttt#1{<#1>}%
 }
+
+%% Define vertical rule between columns
+\setlength{\columnseprule}{1.5pt}
+\setlength{\columnsep}{2.0em}
+\def\columnseprulecolor{\color{structure}}
