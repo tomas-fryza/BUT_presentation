@@ -268,3 +268,20 @@
 \setlength{\columnseprule}{1.5pt}
 \setlength{\columnsep}{2.0em}
 \def\columnseprulecolor{\color{structure}}
+
+%% Define url colors
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,        % false: boxed links; true: colored links
+    linkcolor=structure,    % color of internal links (change box color with linkbordercolor)
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=structure      % color of external links
+}
+
+%% Define new commands
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\im}{\item}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}

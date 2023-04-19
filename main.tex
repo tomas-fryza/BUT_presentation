@@ -39,15 +39,18 @@
 % The short title appears at the bottom of every slide, the full title
 % is only on the title page.
 \title[Short title]
-{Full title of the thesis/project}
+{Full title of the thesis/project/article}
 
 % Type of project, i.e. Semestral, Bachelor, Master's, PhD, etc.
 \subtitle
-{Semestral/Bachelor/Master's thesis}
+{Semestral/Bachelor/Master's thesis/Conference name}
 
 % Your name
-\author[Given name SURNAME]
-{Given name SURNAME\\
+\author[Your NAME]
+{
+Your NAME\\
+% In case of several authors:
+% \underline{First AUTHOR}, Second AUTHOR, Third AUTHOR\\
 \texttt{email@address}}
 
 % Your institution
@@ -60,7 +63,7 @@ Brno University of Technology, Czechia}
 {Brno, \today}
 
 % Logo on title page
-\titlegraphic{\includegraphics[height=.15\textheight]{Images/logo/logo_fekt_urel.png}}
+\titlegraphic{\includegraphics[height=.15\textheight]{images/logo/logo_fekt_urel.png}}
 
 \begin{document}
 
@@ -157,7 +160,7 @@ Brno University of Technology, Czechia}
 \begin{frame}{Figures}
     \begin{figure}
         \centering
-        \includegraphics[width=0.25\textwidth]{Images/logo/logo_symbol.png}
+        \includegraphics[width=0.25\textwidth]{images/logo/logo_symbol.png}
         \caption{Your caption.}
     \end{figure}
 \end{frame}
@@ -185,7 +188,7 @@ Brno University of Technology, Czechia}
     \begin{table}
         \centering
         \caption{Your caption.}
-        \begin{tabular}{l | c | c | r}
+        \begin{tabular}{l  | c | c |  r}
             \hline
             \textbf{ID} & \textbf{Duration} & \textbf{Complexity} & \textbf{Score}\\
             \hline
@@ -256,9 +259,9 @@ plot(x,y)
 -- Entity declaration for hexadecimal to seven-segment decoder
 ---------------------------------------------------------------
 entity hex_7seg is
-    port(
-        hex_i: in  std_logic_vector(4 - 1 downto 0);
-        seg_o: out std_logic_vector(7 - 1 downto 0)
+    port (
+        hex : in    std_logic_vector(3 downto 0);
+        seg : out   std_logic_vector(6 downto 0)
     );
 end entity hex_7seg;
 \end{lstlisting}
@@ -292,6 +295,36 @@ end entity hex_7seg;
     \begin{block}{Answer 1}
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
     \end{block}
+\end{frame}
+
+% ----------------------------------------------------------------------
+
+\begin{frame}{Q \& A}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{flushright}
+            \includegraphics[width=1.\textwidth]{images/contacts/fekt_leto.jpg}
+        \end{flushright}
+
+        \column{0.5\textwidth}
+        \textbf{Your NAME}\\
+        ~\\
+        Department of Radio Electronics\\
+        Brno University of Technology\\
+        % \url{https://www.vutbr.cz/lide/tomas-fryza-11389}\\
+        \url{https://www.urel.fekt.vut.cz}\\
+        ~\\
+        \url{fryza@vut.cz}\\
+        ~\\
+        \includegraphics[scale=0.5]{images/contacts/icon_fcb.png} \url{https://www.facebook.com/URELBrno}\\
+
+        \includegraphics[scale=0.5]{images/contacts/icon_github.png} \url{https://www.github.com/your-acount}\\
+
+        \includegraphics[scale=0.5]{images/contacts/icon_twitter.png} @YourName\\
+    \end{columns}
+% -------------------------------------
+    \note{~}
+% -------------------------------------
 \end{frame}
 
 \end{document}
